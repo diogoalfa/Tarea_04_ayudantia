@@ -9,12 +9,15 @@
         
        public function crearAdmin($datos) {
             $this->db->insert('administrador',$datos);
+            echo '<script>alert("Exito al guardar datos de admin"); </script>';
+redirect('/Inicio', 'refresh');
+            return true;
         }
         public function getTodosAdmin(){
             //$query=$this->db->get('administrador');
            //$query=$this->db->query('SELECT *FROM administrador;');
            $query = $this->db
-                ->select("*")
+                ->select("nombre,rut,contacto")
                 ->from("administrador")
                 ->order_by("pk","asc")
                 ->get ();

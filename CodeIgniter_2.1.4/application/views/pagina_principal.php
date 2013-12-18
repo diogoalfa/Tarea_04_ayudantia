@@ -37,14 +37,18 @@
         /* @var $admins type */
         
         //if(isset($admins)){
-            echo "<table class='table table-hover'>
-                   <thead><tr>
-                  <td>id</td><td>Nombre</td><td>Rut</td><td>Contacto</td>
-                  </tr> </thead><tbody>";
+            echo "<table class='table table-hover-striped'>
+                   <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Rut</th>
+                        <th>Contacto</th>
+                    </tr> 
+                  </thead><tbody>";
               
             foreach ($admins as $ads) { ?>
              <tr>
-                 <td><?= $ads->pk;?></td><td><?= $ads->nombre; ?></td><td><?= $ads->rut; ?></td><td><?= $ads->contacto ;?></td>
+                <td><?= $ads->nombre; ?></td><td><?= $ads->rut; ?></td><td><?= $ads->contacto ;?></td>
              </tr>
                    
             <?}

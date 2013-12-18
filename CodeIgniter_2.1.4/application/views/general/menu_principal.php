@@ -18,7 +18,7 @@
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <li class="active"><a href="<?= site_url('welcome');?>">Inicio</a></li>
+                <li class="active"><a href="<?= site_url('Inicio');?>">Inicio</a></li>
                 <li><a href="#">Consulta</a></li>
                 <li><a href="<?= site_url('pedidos');?>">Pedidos</a></li>
                     <li><a href="#">Profesores</a></li>
