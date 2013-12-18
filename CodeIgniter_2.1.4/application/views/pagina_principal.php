@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="<?php echo base_url() ?>public/js/funciones.js"></script>
 
     <div class="well">
         <h3>Registrar Administrador </h3><br><br>
@@ -43,13 +43,17 @@
                         <th>Nombre</th>
                         <th>Rut</th>
                         <th>Contacto</th>
+                        <th>Opcion</th>
                     </tr> 
                   </thead><tbody>";
               
             foreach ($admins as $ads) { ?>
              <tr>
-                <td><?= $ads->nombre; ?></td><td><?= $ads->rut; ?></td><td><?= $ads->contacto ;?></td>
-             </tr>
+                <td><?= $ads->nombre; ?></td>
+                <td><?= $ads->rut; ?></td>
+                <td><?= $ads->contacto ;?></td>
+                <td><a href="javascript:void(0);"onclick="eliminar('<?php base_url('Inicio') ?>Inicio/eliminar/<? echo $ads->pk; ?>')">Eliminar</a></td>
+            </tr>
                    
             <?}
             echo "</tbody></table>";
