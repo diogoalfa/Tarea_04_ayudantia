@@ -48,10 +48,10 @@ class Inicio extends CI_Controller {
         $this->Admin_model->crearAdmin($datos);
     }
     public function eliminar($id=NULL){
-        if (!isset($id)) {
+        if (! $id) {
             show_404();
         }
-        $this->admin_model->delete($id);
+        $eliminar = $this->admin_model->delete($id);
     }
     
    
