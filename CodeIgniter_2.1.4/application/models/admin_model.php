@@ -25,7 +25,7 @@
         }
         public function delete($id){
             $this->db->delete('administrador', array('pk' => $id));
-            redirect('/Inicio', 'refresh');
+            redirect('Inicio', 301);
             return true;
         }
      
