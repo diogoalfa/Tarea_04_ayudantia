@@ -52,7 +52,7 @@
                 <td><?= $ads->nombre; ?></td>
                 <td><?= $ads->rut; ?></td>
                 <td><?= $ads->contacto ;?></td>
-                <td><a href="javascript:void(0);"onclick="eliminar('<?php base_url('Inicio') ?>Inicio/eliminar/<? echo $ads->pk; ?>')">Eliminar</a></td>
+                <td><a href="javascript:void(0);"onclick="eliminar('<?php base_url('Inicio') ?>index.php/Inicio/eliminar/<? echo $ads->pk; ?>')">Eliminar</a></td>
             </tr>
                    
             <?}

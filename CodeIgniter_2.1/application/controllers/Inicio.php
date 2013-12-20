@@ -51,7 +51,10 @@ class Inicio extends CI_Controller {
         if (! $id) {
             show_404();
         }
-        $eliminar = $this->admin_model->delete($id);
+        $eliminar = $this->Admin_model->delete($id);
+        if($eliminar){
+            redirect(base_url('index.php/Inicio/'),301);
+        }
     }
     
    
