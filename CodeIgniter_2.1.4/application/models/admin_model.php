@@ -25,8 +25,20 @@
         }
         public function delete($id){
             $this->db->delete('administrador', array('pk' => $id));
-            redirect('index.php/Inicio', 301);   
             return true;
+        }
+        public function getAdminEdit($id){
+           $query = $this->db
+                ->select("pk,nombre,rut,contacto")
+                ->from("administrador")
+                ->where(array('pk' =>$id))
+                ->get ();
+                return $query->row();
+        }
+         public function updateAdmin($datos,$id){
+                $this->db->where('pk', $id);
+                $this->db->update('administrador', $datos);
+                return true;
         }
      
     }
