@@ -2,27 +2,58 @@
 <script type="text/javascript" src="<?php echo base_url() ?>public/js/funciones.js"></script>
 
     <div class="well">
-        <h3>Editar Administrador </h3><br><br>
-       
-        <form  method="post" action="<?= site_url('Inicio/update/'.$edit->pk.'');?>">
-            <div class="row">
-                <div class="span2">Nombre :</div><div class="span4">
-                <input name="nombre" value="<?php echo $edit->nombre; ?>" type="text"></div>
-            </div> 
-            <div class="row">
-                <div class="span2">Rut :</div><div class="span4">
-                <input name="rut" value="<?php echo $edit->rut; ?>" type="text"></div>
-            </div> 
-            <div class="row">
-                <div class="span2">Contacto :</div><div class="span4">
-                <input name="contacto" value="<?php echo $edit->contacto; ?>" type="text"></div>
-            </div>
-            <div class="row">
-                <div class="span2"></div><div class="span4"></div>
-            </div> 
-            <div class="row">
-                <div class="span4"><button type="submit" class="btn btn-primary">Guardar!</button></div>
-            </div>
-        </form>
-        <br>
-        <br>
+<script type="text/javascript" src="<?php echo base_url() ?>public/js/funciones.js"></script>
+    <div class="row-fluid">
+        <div class="row-fluid">
+            <div class="span12"><h3 style="text-align:center">Editar Administrador </h3><br><br></div>
+        </div>
+        <div class="span4"></div>
+        <div class="span4">
+
+        <?php       
+            $nombre= array(
+                'name'=> 'nombre',
+                'id'=> 'nombre',
+                'placeholder' =>'Nombre',
+                'value' => $edit->nombre,
+                );
+            $rut= array(
+                'name'=> 'rut',
+                'id'=> 'rut',
+                'placeholder' =>'Rut',
+                'value' => $edit->rut,
+                );
+            $contacto= array(
+                'name'=> 'contacto',
+                'id'=> 'contacto',
+                'placeholder' =>'Contacto',
+                'value' => $edit->contacto,
+                );
+            $enviar= array(
+                'name'=> 'enviar',
+                'id'=> 'enviar',
+                'class' =>'btn btn-primary',
+                'value'=>'Editar',
+                );                                                                            
+         ?>
+        
+            <table border="0">
+                <?php echo form_open('Inicio/update/'.$edit->pk.''); ?>
+                    <tr>
+                        <td><?php echo form_input($nombre); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo form_input($rut); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo form_input($contacto); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo form_submit($enviar); ?></td>
+                    </tr>
+                <?php echo form_close(); ?>
+            </table><br><br>
+       </div>
+       <div class="span4"></div>
+        </div>  
+        </div>      
