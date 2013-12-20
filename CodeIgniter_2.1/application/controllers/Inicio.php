@@ -48,6 +48,7 @@ class Inicio extends CI_Controller {
         $this->Admin_model->crearAdmin($datos);
     }
     public function eliminar($id=NULL){
+<<<<<<< HEAD:CodeIgniter_2.1/application/controllers/Inicio.php
         if (! $id) {
             show_404();
         }
@@ -55,11 +56,48 @@ class Inicio extends CI_Controller {
         if($eliminar){
             redirect(base_url('index.php/Inicio/'),301);
         }
+=======
+        if (!$id) {
+            show_404();
+        }
+        $eliminar = $this->admin_model->delete($id);
+        if($eliminar==TRUE)
+        {
+            echo '<script>alert("Se ha eliminado un registro"); </script>';
+            redirect('/Inicio', 'refresh');
+        }
+        
+>>>>>>> 9d70360536931f1189f8469c7af5ada30f69ca16:CodeIgniter_2.1.4/application/controllers/Inicio.php
     }
-    
+    public function editar($id = null){
+       $this->load->view('general/headers');
+        $this->load->view('general/menu_principal');
+        $this->load->view('general/abre_bodypagina');
+      
+        $edit=$this->admin_model->getAdminEdit($id);
+        
+        $this->load->view('pagina_editar',compact("edit"));
+        $this->load->view('general/cierre_bodypagina');
+        $this->load->view('general/cierre_footer');
+        // $query = $this->Formulario_model->getalumno($id);
+        // $this->load->view('editar', compact("query", "id"));
+    }
+    public function update($id){
+        $datos = array('pk' =>$id,
+         'nombre' =>$this->input->post('nombre'),
+          'contacto' => $this->input->post('contacto'),
+           'rut' => $this->input->post('rut')); 
+        $crear=$this->Admin_model->updateAdmin($datos,$id); 
+        if($crear==TRUE){ 
+            echo '<script>alert("Exito al editar datos de admin"); </script>'; 
+            redirect('/Inicio', 'refresh'); 
+        }
+    }
+
    
 
-    }
+    
+   }
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
