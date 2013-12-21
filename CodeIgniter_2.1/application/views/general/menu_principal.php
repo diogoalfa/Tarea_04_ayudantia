@@ -16,7 +16,7 @@
         <h3 class="muted">Horario de Clases</h3>
         <div class="navbar">
           <div class="navbar-inner">
-            <div class="container-fluid">
+            <div class="container">
               <ul class="nav">
                 <li class="active"><a href="<?= site_url('Inicio');?>">Inicio</a></li>
                 <li><a href="#">Consulta</a></li>
