@@ -9,8 +9,6 @@
         
        public function crearAdmin($datos) {
             $this->db->insert('administrador',$datos);
-            echo '<script>alert("Exito al guardar datos de admin"); </script>';
-            redirect('/Inicio', 'refresh');
             return true;
         }
         public function getTodosAdmin(){

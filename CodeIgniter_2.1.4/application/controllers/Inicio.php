@@ -7,7 +7,9 @@ class Inicio extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        $this->load->helper('form');
         $this->load->model('admin_model');
+        $this->load->library('form_validation');
         
     }
 
@@ -26,13 +28,34 @@ class Inicio extends CI_Controller {
     }
 
     public function recibirDatos() {
-        
-        $datos = array('nombre' =>$this->input->post('nombre'),
-            'clave' =>$this->input->post('clave1'),
-            'contacto' => $this->input->post('contacto'),
-            'rut' => $this->input->post('rut'));
 
-        $this->Admin_model->crearAdmin($datos);
+        $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check|max_length[40]');
+        $this->form_validation->set_rules('rut','Rut','required|alpha_numeric|max_length[20]');
+        $this->form_validation->set_rules('password', 'Contraseña', 'required|max_length[20]|xss_clean');
+        //
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        
+        if ($this->form_validation->run() == FALSE){
+
+            echo $error_username= form_error('username');
+            echo $error_rut=form_error('rut');
+            echo $error_password=form_error('password');
+            //
+            echo $error_email=form_error('email');
+            echo "La pagina se redireccionará en 5 segundos.";
+            
+            header ("refresh: 5, http://localhost/Tarea_04_ayudantia/CodeIgniter_2.1.4/index.php/Inicio"); 
+        }
+        else{
+            $datos = array( 'nombre' =>$this->input->post('nombre'),
+                            'clave' =>$this->input->post('clave1'),
+                            'contacto' => $this->input->post('contacto'),
+                            'rut' => $this->input->post('rut'));
+            $this->Admin_model->crearAdmin($datos);
+        }
+
+
+        
     }
     public function eliminar($id=NULL){
         if (!$id) {

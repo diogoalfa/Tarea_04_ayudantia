@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo base_url() ?>public/js/funciones.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>public/js/funciones.js"></script>
 <div class="well">
     <div class="row-fluid">
         <div class="row-fluid">
@@ -53,7 +53,7 @@
                         <td><?php echo form_password($clave); ?></td>
                     </tr>
                     <tr>
-                        <td><?php echo form_password($clave2); ?></td>
+                        <td><?php //echo form_password($clave2); ?></td>
                     </tr>
                     <tr>
                         <td><?php echo form_input($contacto); ?></td>
@@ -96,7 +96,7 @@
             </tr>
 
                    
-            <?}
+            <?php }
             echo "</tbody></table>";
         //}else{
          //   echo "Noo exiten datos!<br>";
